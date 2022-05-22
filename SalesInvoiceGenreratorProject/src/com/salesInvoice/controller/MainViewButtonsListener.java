@@ -128,10 +128,10 @@ public class MainViewButtonsListener implements ActionListener {
                         String str3 = arr[2];    
                         String str4 = arr[3];
                         int invCode = Integer.parseInt(str1);
-                        double price = Double.parseDouble(str2);
-                        int count = Integer.parseInt(str3);
+                        double price = Double.parseDouble(str3);
+                        int count = Integer.parseInt(str4);
                         HeaderModel inv = frame.getInvObject(invCode);
-                        InvoiceLineModel line = new InvoiceLineModel(str4, price, count, inv);
+                        InvoiceLineModel line = new InvoiceLineModel(str2, price, count, inv);
                        
                         inv.getLines().add(line);
                     }
