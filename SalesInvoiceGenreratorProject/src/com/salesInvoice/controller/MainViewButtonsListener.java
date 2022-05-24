@@ -123,6 +123,12 @@ public class MainViewButtonsListener implements ActionListener {
                    System.out.println(lineLines); 
                     for (String lineLine : lineLines) {
                         String[] arr = lineLine.split(",");
+                        System.out.println("############");
+                        System.out.println(arr[0]);
+                        System.out.println(arr[1]);
+                        System.out.println(arr[2]);
+                        System.out.println(arr[3]);
+                        System.out.println("############");
                         String str1 = arr[0];  
                         String str2 = arr[1];    
                         String str3 = arr[2];    
@@ -198,7 +204,8 @@ public class MainViewButtonsListener implements ActionListener {
                 String headers = "";
                 String lines = "";
                 for (HeaderModel invoice : invoicesArray) {
-                    DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
+                    DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+                    System.out.println(invoice.getInvoiceDate());
                     ArrayList<String> x=new ArrayList<>();
                     x.add(Integer.toString(invoice.getInvoiceNum()));
                     x.add(dateFormat.format(invoice.getInvoiceDate()).toString());
@@ -209,9 +216,9 @@ public class MainViewButtonsListener implements ActionListener {
                     for (InvoiceLineModel line : invoice.getLines()) {
                         ArrayList<String> y=new ArrayList<>();
                         y.add(Integer.toString(invoice.getInvoiceNum()));
+                        y.add(line.getName());
                         y.add(Double.toString(line.getPrice()));
                         y.add(Integer.toString(line.getCount()));
-                        y.add(line.getName());
                         lines += Arrays.toString(y.toArray()).replace("[", "").replace("]", "").replace(" ","");
                         lines += "\n";
                     }
